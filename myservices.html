@@ -1,0 +1,307 @@
+<section id="services" class="services-container">
+    <h2 class="section-title">My Services 💼</h2>
+    <div id="particles-js"></div> <!-- Background Particles -->
+    <div class="services-grid">
+        <div class="service-card" data-aos="fade-up">
+            <div class="icon">💻</div>
+            <h3>Web App Development</h3>
+            <p>Crafting modern, scalable, and high-performance web applications tailored to your needs.</p>
+            <button class="learn-more-btn" onclick="openModal('web-app')">Learn More</button>
+        </div>
+        <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="icon">📱</div>
+            <h3>Mobile App Development</h3>
+            <p>Building smooth, responsive, and feature-rich mobile applications for iOS and Android.</p>
+            <button class="learn-more-btn" onclick="openModal('mobile-app')">Learn More</button>
+        </div>
+        <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="icon">🛡️</div>
+            <h3>Cyber Security Solutions</h3>
+            <p>Providing advanced security solutions, including threat detection and vulnerability assessments.</p>
+            <button class="learn-more-btn" onclick="openModal('cyber-security')">Learn More</button>
+        </div>
+        <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="icon">🖥️</div>
+            <h3>Desktop Application Development</h3>
+            <p>Creating powerful and efficient desktop applications tailored to your business needs.</p>
+            <button class="learn-more-btn" onclick="openModal('desktop-app')">Learn More</button>
+        </div>
+    </div>
+</section>
+
+<!-- Modal -->
+<div id="modal" class="modal">
+    <div class="modal-dialog">
+        <div class="modal-header">
+            <h2 id="modal-title"></h2>
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+        </div>
+        <div class="modal-body">
+            <p id="modal-description"></p>
+            <h4>Technologies Used:</h4>
+            <ul id="modal-techs"></ul>
+            <h4>Estimated Completion Time:</h4>
+            <p id="modal-time"></p>
+        </div>
+    </div>
+</div>
+
+<!-- CSS -->
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.services-container {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #12042a, #2a5298);
+    color: white;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.services-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+}
+
+.service-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 300px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
+}
+
+.icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+p {
+    font-size: 1rem;
+    color: #ddd;
+}
+
+/* Learn More Button */
+.learn-more-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: #fff;
+    padding: 10px 15px;
+    margin-top: 15px;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.learn-more-btn:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-dialog {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+    padding: 20px;
+    border-radius: 15px;
+    width: 400px;
+    color: white;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-body {
+    margin-top: 15px;
+}
+
+.close-btn {
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: white;
+}
+
+.close-btn:hover {
+    color: red;
+}
+
+h4 {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    color: #ddd;
+}
+
+ul li {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@media (max-width: 768px) {
+    .services-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+</style>
+
+<!-- Particles.js Script -->
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+    particlesJS("particles-js", {
+        particles: {
+            number: { value: 80, density: { enable: true, value_area: 800 } },
+            color: { value: "#ffffff" },
+            shape: { type: "circle" },
+            opacity: { value: 0.5, random: true },
+            size: { value: 3, random: true },
+            move: { enable: true, speed: 2 }
+        },
+        interactivity: {
+            detect_on: "canvas",
+            events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" } },
+            modes: { repulse: { distance: 100 }, push: { particles_nb: 4 } }
+        },
+        retina_detect: true
+    });
+
+    function openModal(service) {
+    if (!service) return; // Prevent opening if service is undefined
+
+    const modal = document.getElementById("modal");
+    const title = document.getElementById("modal-title");
+    const description = document.getElementById("modal-description");
+    const techsList = document.getElementById("modal-techs");
+    const time = document.getElementById("modal-time");
+
+    const serviceDetails = {
+        "web-app": { 
+            title: "Web App Development",
+            description: "I develop scalable, secure web applications tailored to your needs.",
+            techs: ["React.js", "Node.js", "MongoDB", "Express.js"],
+            time: "4-8 weeks"
+        },
+        "mobile-app": { 
+            title: "Mobile App Development",
+            description: "Developing high-performance mobile apps for both iOS and Android.",
+            techs: ["Flutter", "React Native", "Swift", "Kotlin"],
+            time: "6-10 weeks"
+        },
+        "cyber-security": { 
+            title: "Cyber Security Solutions",
+            description: "Providing security services like penetration testing and threat analysis.",
+            techs: ["Wazuh", "MITRE ATT&CK", "SIEM", "Firewalls"],
+            time: "2-6 weeks"
+        },
+        "desktop-app": { 
+            title: "Desktop Application Development",
+            description: "Building feature-rich and fast desktop applications.",
+            techs: ["Electron.js", ".NET", "C#", "Java"],
+            time: "6-12 weeks"
+        }
+    };
+
+    const serviceData = serviceDetails[service];
+
+    if (!serviceData) return; // Prevent opening if service is not found
+
+    title.innerText = serviceData.title;
+    description.innerText = serviceData.description;
+    techsList.innerHTML = serviceData.techs.map(tech => `<li>${tech}</li>`).join("");
+    time.innerText = serviceData.time;
+
+    modal.style.display = "flex";
+}
+
+// Ensure the modal does not open on reload
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("modal").style.display = "none";
+});
+
+    function closeModal() {
+        document.getElementById("modal").style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target === document.getElementById("modal")) {
+            closeModal();
+        }
+    };
+</script>

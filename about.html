@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Journey</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .journey-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 50px 10%;
+            gap: 50px;
+            margin-top: 60px;
+        }
+
+        .journey-image img {
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .journey-image img:hover {
+            transform: scale(1.05);
+        }
+
+      
+
+.journey-text:hover {
+    background: rgba(255, 255, 255, 0.1);
+    /* Slight padding increase for effect */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2); /* Subtle glow effect */
+}
+
+        .journey-text h1 {
+            font-size: 36px;
+            color: #e63946;
+            margin-bottom: 10px;
+        }
+
+        .journey-text p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #ddd;
+        }
+
+        .skills-chart {
+            width: 80%;
+            max-width: 700px;
+            margin: 50px auto;
+            text-align: center;
+        }
+        .skills-chart canvas {
+    max-width: 100%;
+    max-height: 400px;
+}
+
+        .chart-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .journey-container {
+                flex-direction: column;
+                text-align: center;
+                margin-top: 80px;
+                
+            }
+
+            .journey-image img {
+                width: 260px;
+                height: 260px;
+            }
+        }
+        .progress-quote {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    font-style: italic;
+    color: #ccc;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="progress-quote">
+        <i>"Progress is not in never falling, but in rising every time we fall."</i>
+    </div>
+    <div class="journey-container">
+        <div class="journey-image">
+            <img src="profile2.jpg" alt="My Photo">
+        </div>
+        <div class="journey-text">
+            <h1>My Journey</h1>
+            <p>My journey into programming started with C, where I developed strong logic and problem-solving skills. 
+            As I progressed, I delved into Java and Data Structures & Algorithms, refining my ability to create efficient solutions. 
+            Moving forward, I embraced backend development with the .NET framework and C#, gaining insight into scalable architectures.
+            Currently, I am actively engaged in web development with the MERN stack and mobile development using Flutter.
+            With a passion for innovation, I am committed to building seamless digital experiences that make an impact.</p>
+        </div>
+    </div>
+    
+    <div class="chart-container">
+        <div class="skills-chart">
+            <h2>My Skills</h2>
+            <canvas id="skillsChart"></canvas>
+        </div>
+
+        <div class="skills-chart">
+            <h2>Experience Growth</h2>
+            <canvas id="experienceChart"></canvas>
+        </div>
+    </div>
+
+    <script>
+        var ctx1 = document.getElementById('skillsChart').getContext('2d');
+        var skillsChart = new Chart(ctx1, {
+            type: 'line',
+            data: {
+                labels: ['2021', '2022', '2023', '2024','2025'],
+                datasets: [
+                    {
+                        label: 'App Development(Flutter)',
+                        data: [0, 8, 31, 45, 65, 82],
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        fill: true
+                    },
+                    {
+                        label: 'Web Development',
+                        data: [0, 13, 30, 42, 66, 72],
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        fill: true
+                    },
+                    {
+                        label: 'Cyber Security(Enterprise N.)',
+                        data: [0, 10, 22, 35, 45, 50],
+                        borderColor: 'rgba(255, 206, 86, 1)',
+                        backgroundColor: 'rgba(255, 206, 86, 0.2)',
+                        fill: true
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100
+                    }
+                }
+            }
+        });
+
+        var ctx2 = document.getElementById('experienceChart').getContext('2d');
+        var experienceChart = new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                labels: ['2021', '2022', '2023', '2024','2025'],
+                datasets: [
+                    {
+                        label: 'Experience Level',
+                        data: [10, 15, 25, 27, 30, 65],
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
